@@ -22,20 +22,25 @@ namespace RefactorKata
             //TODO: Replace with Dapper
             while (reader.Read())
             {
-                var prod = new Product {name = reader["Name"].ToString()};
+                var prod = new Product { Name = reader["Name"].ToString() };
                 products.Add(prod);
             }
             conn.Dispose();
             Console.WriteLine("Products Loaded!");
             foreach (var t in products)
             {
-                Console.WriteLine(t.name);
+                Console.WriteLine(t.Name);
             }
         }
     }
     public class Product
     {
-        public string name;
-        public string Name { get { return name; } set { name = value; } }
+
+
+        public string Name
+        {
+            get;
+            set;
+        }
     }
 }
